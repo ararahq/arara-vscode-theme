@@ -1,0 +1,51 @@
+{
+  "name": "arara-theme",
+  "displayName": "Arara Theme",
+  "description": "A vibrant, developer-first theme by AraraHQ. Dark & Light variants with carefully crafted syntax highlighting.",
+  "version": "1.0.0",
+  "publisher": "ararahq",
+  "license": "MIT",
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.70.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "arara",
+    "ararahq",
+    "theme",
+    "dark",
+    "light",
+    "developer",
+    "whatsapp"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ararahq/arara-vscode-theme"
+  },
+  "homepage": "https://ararahq.com",
+  "bugs": {
+    "url": "https://github.com/ararahq/arara-vscode-theme/issues"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Arara Dark",
+        "uiTheme": "vs-dark",
+        "path": "./themes/arara-dark.json"
+      },
+      {
+        "label": "Arara Light",
+        "uiTheme": "vs",
+        "path": "./themes/arara-light.json"
+      }
+    ]
+  },
+  "scripts": {
+    "generate": "node generate-themes.js",
+    "package": "npx @vscode/vsce package",
+    "publish": "npx @vscode/vsce publish"
+  }
+}
