@@ -12,10 +12,10 @@
 
 const fs = require("fs");
 const path = require("path");
-const { brand } = require("./colors");
+const { palettes } = require("./colors");
 
-const darkTheme = {
-  name: "Arara Dark",
+const makeDarkTheme = (brand, name) => ({
+  name,
   type: "dark",
   semanticHighlighting: true,
   colors: {
@@ -357,10 +357,10 @@ const darkTheme = {
       settings: { foreground: brand.primary, fontStyle: "italic" }
     },
   ]
-};
+});
 
-const lightTheme = {
-  name: "Arara Light",
+const makeLightTheme = (brand, name) => ({
+  name,
   type: "light",
   semanticHighlighting: true,
   colors: {
@@ -565,7 +565,7 @@ const lightTheme = {
       settings: { foreground: "#A626A4" }
     },
   ]
-};
+});
 
 const themesDirectory = path.join(__dirname, "themes");
 
@@ -573,16 +573,15 @@ if (!fs.existsSync(themesDirectory)) {
   fs.mkdirSync(themesDirectory, { recursive: true });
 }
 
-fs.writeFileSync(
-  path.join(themesDirectory, "arara-dark.json"),
-  JSON.stringify(darkTheme, null, 2)
-);
-
-fs.writeFileSync(
-  path.join(themesDirectory, "arara-light.json"),
-  JSON.stringify(lightTheme, null, 2)
-);
+const variants = [
+  ["arara-dark.json",          makeDarkTheme(palettes.teal, "Arara Dark")],
+  ["arara-light.json",         makeLightTheme(palettes.teal, "Arara Light")],
+  ["arara-dark-laranja.json",  makeDarkTheme(palettes.laranja, "Arara Dark Laranja")],
+  ["arara-light-laranja.json", makeLightTheme(palettes.laranja, "Arara Light Laranja")],
+];
 
 console.log("Themes generated successfully!");
-console.log("  - themes/arara-dark.json");
-console.log("  - themes/arara-light.json");
+for (const [file, theme] of variants) {
+  fs.writeFileSync(path.join(themesDirectory, file), JSON.stringify(theme, null, 2));
+  console.log(`  - themes/${file}`);
+}

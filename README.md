@@ -4,8 +4,10 @@ A vibrant, developer-first theme crafted by [AraraHQ](https://ararahq.com) — t
 
 ## Variants
 
-- **Arara Dark** — Deep, focused dark theme for long coding sessions
-- **Arara Light** — Clean, crisp light theme for bright environments
+- **Arara Dark** — Deep, focused dark theme for long coding sessions (teal, cores oficiais da AraraHQ)
+- **Arara Light** — Clean, crisp light theme for bright environments (teal, cores oficiais da AraraHQ)
+- **Arara Dark Laranja** — a paleta laranja original do tema (1.0.x), mantida como variante
+- **Arara Light Laranja** — idem, em fundo claro
 
 ## Installation
 
@@ -14,7 +16,7 @@ A vibrant, developer-first theme crafted by [AraraHQ](https://ararahq.com) — t
 1. Open **Extensions** sidebar (`Cmd+Shift+X`)
 2. Search for `Arara Theme`
 3. Click **Install**
-4. Open **Command Palette** (`Cmd+Shift+P`) → `Preferences: Color Theme` → Select **Arara Dark** or **Arara Light**
+4. Open **Command Palette** (`Cmd+Shift+P`) → `Preferences: Color Theme` → Select **Arara Dark**, **Arara Light** or one of the **Laranja** variants
 
 ### From VSIX
 

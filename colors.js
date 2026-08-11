@@ -27,14 +27,15 @@ const brand = {
   },
 
   // === PRIMARY (a cor principal da marca) ===
-  primary:        "#E86A2A",  // Arara Orange (trocar pra azul quando pronto)
-  primaryLight:   "#F0944D",  // Variante mais clara
-  primaryDark:    "#C45A1F",  // Variante mais escura
-  primaryMuted:   "#E86A2A33", // Primary com 20% opacity
-  primarySubtle:  "#E86A2A15", // Primary com 8% opacity
+  // Teal oficial da identidade AraraHQ (ararahq-identidade.pen / globals.css do dash).
+  primary:        "#1C99A7",
+  primaryLight:   "#5FBCC7",
+  primaryDark:    "#0E7D8A",
+  primaryMuted:   "#1C99A733", // Primary com 20% opacity
+  primarySubtle:  "#1C99A715", // Primary com 8% opacity
 
   // === ACCENT (cor secundaria / destaque) ===
-  accent:         "#F5A623",  // Amber/gold
+  accent:         "#F3B64B",  // Dourado da identidade
   accentLight:    "#FFCA57",
   accentDark:     "#D4911E",
 
@@ -46,7 +47,7 @@ const brand = {
 
   // === SYNTAX HIGHLIGHTING (personalizaveis) ===
   syntax: {
-    keyword:      "#E86A2A",  // primary — if, const, return
+    keyword:      "#1C99A7",  // primary — if, const, return
     function:     "#61AFEF",  // azul — nomes de funcao
     string:       "#98C379",  // verde — strings
     number:       "#D19A66",  // dourado — numeros
@@ -60,8 +61,23 @@ const brand = {
     property:     "#61AFEF",  // azul — propriedades
     constant:     "#D19A66",  // dourado — constantes
     regexp:       "#98C379",  // verde — regex
-    decorator:    "#E86A2A",  // primary — decorators
+    decorator:    "#1C99A7",  // primary — decorators
   }
 };
 
-module.exports = { brand };
+/**
+ * Variante Laranja — a cor original do tema (1.0.x), mantida como opcao.
+ * Quem escolheu "Arara Dark Laranja" fica com o visual de sempre.
+ */
+const laranja = {
+  ...brand,
+  primary:        "#E86A2A",
+  primaryLight:   "#F0944D",
+  primaryDark:    "#C45A1F",
+  primaryMuted:   "#E86A2A33",
+  primarySubtle:  "#E86A2A15",
+  accent:         "#F5A623",
+  syntax: { ...brand.syntax, keyword: "#E86A2A", decorator: "#E86A2A" },
+};
+
+module.exports = { brand, palettes: { teal: brand, laranja } };
